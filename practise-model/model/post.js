@@ -10,7 +10,31 @@ const Post =  sequelize.define('Post',{
         type: DataTypes.STRING,
         allowNull: false
     }
-});
+},
+{ 
+    defaultScope:{
+    where:{
+        id: 8,
+    }
+    },
+    scopes:{
+        descr:{
+            where:{
+                descr: 'helo'
+            }
+        },
+        isTitle:{
+           where:{
+               title:'hello there'
+           } 
+        }
+    }
+}
+
+);
+
+
+
 
 
 module.exports = Post;
